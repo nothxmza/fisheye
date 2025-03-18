@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<meta charset="utf-8">
+		<link rel="icon" type="image/png" href="assets/favicon.png">
+		<link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<title>Fisheye - photographe </title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="./index.html" tabindex="0">
+					<img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
+				</a>
+			</nav>
+		</header>
+		<main id="main">
+			<section>
+				<div class="photograph-header">
+				 <div class="photograph-header-left"></div>
+				 <div class="photograph-header-middle"></div>
+				 <div class="photograph-header-right"></div>
+				</div>
+			</section>
+			<section>
+				<div class="photograph-filter">
+					<div class="filter" aria-label="menu déroulant de tri">
+						<span id="order_by">Trier par</span>
+						<div class="custom-select">
+							<button id="select-button" class="filterToggle" role="button" aria-haspopup="listbox" aria-expanded="false">
+								Popularité <i class="fa-solid fa-chevron-down chevron-select"></i>
+							</button>
+							<ul id="select-options" class="hidden" role="listbox" aria-labelledby="order_by" aria-activedescendant="popular">
+								<li id="popular" class="selected" role="option" aria-selected="true">Popularité</li>
+								<li id="date" role="option" aria-selected="false">Date</li>
+								<li id="title" role="option" aria-selected="false">Titre</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="media"></div>
+				<div class="info"></div>
+			</section>
+			<section>
+				<div id="lightbox-modal" role="dialog" aria-label="Lightbox modal">
+				  <div class="modal-background"></div>
+				  <div class="lightbox"></div>
+				</div>
+			</section>
+		</main>
+		<div id="contact-modal" role="dialog" aria-label="Contact modal">
+			<div class="modal-background"></div>
+			<div class="modal">
+				<div class="modal-header">
+					<div class="modal-header-title">
+						<h1 role="heading">Contactez-moi</h1>
+					</div>
+					<button class="close-modal" onclick="closeModal()" aria-label="Close Contact form">
+						<img src="assets/icons/close.svg" alt="Close image" />
+					</button>
+				</div>
+				<form id="contact-form" aria-label="Contact form">
+					<div>
+						<label for="first-name">Prénom</label>
+						<input id="first-name" type="text" name="first-name" autocomplete="given-name"/>
+					</div>
+					<div>
+						<label for="last-name">Nom</label>
+						<input id="last-name" type="text" name="last-name" autocomplete="family-name"/>
+					</div>
+					<div>
+						<label for="email">Email</label>
+						<input id="email" type="email" name="email" autocomplete="email"/>
+					</div>
+					<div>
+						<label for="message">Votre message</label>
+						<textarea id="message" name="message" autocomplete="off"></textarea>
+					</div>
+				</form>
+				<button id="send" class="contact_button" aria-label="send form" onclick="sendDataForm()">Envoyer</button>
+			</div>
+		</div>
+		<script type="module" src="scripts/factory/media.js"></script>
+		<script type="module" src="scripts/utils/api.js"></script>
+		<script type="module" src="scripts/utils/contactForm.js"></script>
+		<script type="module" src="scripts/templates/photographer.js"></script>
+		<script type="module" src="scripts/pages/photographer.js"></script>
+		<script type="module" src="scripts/utils/lightbox.js"></script>
+	</body>
+</html>
